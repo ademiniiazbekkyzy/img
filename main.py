@@ -42,7 +42,6 @@ def watermark():
             f, e = os.path.splitext(file_name)
 
             width, height = image.size
-
             draw = ImageDraw.Draw(image)
             text = "AUSTIN TEXAS"
 
@@ -54,7 +53,7 @@ def watermark():
             y = height - text_height - margin
 
             draw.text((x, y), text, font=font)
-
+            image = image.convert(mode='L')
             image.save(water_path + f + '.jpg', 'JPEG')
 
 
